@@ -1,1 +1,139 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$lifund-primary: (
+    50 : #fcf3e7,
+    100 : #f8e1c3,
+    200 : #f3cd9b,
+    300 : #eeb973,
+    400 : #ebaa55,
+    500 : #e79b37,
+    600 : #e49331,
+    700 : #e0892a,
+    800 : #dd7f23,
+    900 : #d76d16,
+    A100 : #ffffff,
+    A200 : #ffe6d4,
+    A400 : #ffc9a1,
+    A700 : #ffba88,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$lifund-light: (
+    50 : #fffdfb,
+    100 : #fefbf5,
+    200 : #fef8ef,
+    300 : #fef5e9,
+    400 : #fdf2e4,
+    500 : #fdf0df,
+    600 : #fdeedb,
+    700 : #fcecd7,
+    800 : #fce9d2,
+    900 : #fce5ca,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$lifund-secondary: (
+    50 : #eff7f9,
+    100 : #d8eaef,
+    200 : #bedde4,
+    300 : #a4cfd9,
+    400 : #91c4d1,
+    500 : #7dbac9,
+    600 : #75b3c3,
+    700 : #6aabbc,
+    800 : #60a3b5,
+    900 : #4d94a9,
+    A100 : #ffffff,
+    A200 : #d4f5ff,
+    A400 : #a1e9ff,
+    A700 : #87e3ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// $angular-material-color-primary: mat.define-palette(mat.$indigo-palette);
+// $angular-material-color-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$angular-material-color-primary: mat.define-palette($lifund-primary,500);
+$angular-material-color-accent: mat.define-palette($lifund-light, 500);
+
+// The warn palette is optional (defaults to red).
+$angular-material-color-warn: mat.define-palette($lifund-secondary,500);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$angular-material-color-theme: mat.define-light-theme((
+  color: (
+    primary: $angular-material-color-primary,
+    accent: $angular-material-color-accent,
+    warn: $angular-material-color-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($angular-material-color-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
